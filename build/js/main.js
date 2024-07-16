@@ -160,4 +160,8 @@ class Bands {
 }
 const MyBands = new Bands();
 MyBands.data = ["Neil Young", "Led Zep"];
-console.log(MyBands.data);
+const todaysTransactions = {
+    Pizza: -10,
+    Books: -5,
+    Job: 50,
+};

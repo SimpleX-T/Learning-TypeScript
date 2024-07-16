@@ -246,4 +246,16 @@ const MyBands = new Bands();
 
 MyBands.data = ["Neil Young", "Led Zep"];
 
-console.log(MyBands.data);
+// Index Signatures -> they are useful when you're creating an object but you don't know the exact names of the object keys, and also TypeScript requires it when you attempt to access an object dynamically
+
+interface TransactionObj {
+	Pizza: number;
+	Books: number;
+	Job: number;
+}
+
+const todaysTransactions: TransactionObj = {
+	Pizza: -10,
+	Books: -5,
+	Job: 50,
+};
