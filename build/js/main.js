@@ -3,15 +3,21 @@
 const randomArr = ["Hello", 90, true];
 const stringArr = ["Hello"];
 const numArray = [3, 6, 3, 7];
-let evh = {
-    name: "Eddie",
-    isActive: false,
-    albums: [1984, "U74I"],
-};
-let jp = {
-    name: "John",
-    albums: ["I", "II", "III"],
-};
+//interface
+// interface Guitarist {
+// 	name: string;
+// 	isActive?: boolean;
+// 	albums: (string | number)[];
+// }
+// let evh: Guitarist = {
+// 	name: "Eddie",
+// 	isActive: false,
+// 	albums: [1984, "U74I"],
+// };
+// let jp: Guitarist = {
+// 	name: "John",
+// 	albums: ["I", "II", "III"],
+// };
 function greetGuitarist(guitarist) {
     return `Hello ${guitarist.name}!`;
 }
@@ -110,6 +116,29 @@ class Coder {
     }
 }
 const Tochukwu = new Coder("Tochukwu", "Rap", 20);
-console.log(Tochukwu);
-console.log(Tochukwu.music);
-console.log(Tochukwu.greet());
+class Guitarist {
+    constructor(name, instrument) {
+        this.name = name;
+        this.instrument = instrument;
+    }
+    play(action) {
+        return `${this.name} ${action} the ${this.instrument}`;
+    }
+}
+const Page = new Guitarist("Jimmy Page", "guitar");
+class Peeps {
+    static getCount() {
+        return Peeps.count;
+    }
+    constructor(name) {
+        this.name = name;
+        this.name = name;
+        this.id = ++Peeps.count;
+    }
+}
+Peeps.count = 0;
+const John = new Peeps("John");
+const Steve = new Peeps("Steve");
+const Amy = new Peeps("Amy");
+console.log(Peeps.count);
+console.log(Steve.id);

@@ -13,22 +13,22 @@ type user = {
 };
 
 //interface
-interface Guitarist {
-	name: string;
-	isActive?: boolean;
-	albums: (string | number)[];
-}
+// interface Guitarist {
+// 	name: string;
+// 	isActive?: boolean;
+// 	albums: (string | number)[];
+// }
 
-let evh: Guitarist = {
-	name: "Eddie",
-	isActive: false,
-	albums: [1984, "U74I"],
-};
+// let evh: Guitarist = {
+// 	name: "Eddie",
+// 	isActive: false,
+// 	albums: [1984, "U74I"],
+// };
 
-let jp: Guitarist = {
-	name: "John",
-	albums: ["I", "II", "III"],
-};
+// let jp: Guitarist = {
+// 	name: "John",
+// 	albums: ["I", "II", "III"],
+// };
 
 function greetGuitarist(guitarist: Guitarist): string {
 	return `Hello ${guitarist.name}!`;
@@ -176,7 +176,47 @@ class Coder {
 }
 
 const Tochukwu = new Coder("Tochukwu", "Rap", 20);
+//////////////////////////////////////////////////////////////
 
-console.log(Tochukwu);
-console.log(Tochukwu.music);
-console.log(Tochukwu.greet());
+// Implementing classes with interfaces
+
+interface Musician {
+	name: string;
+	instrument: string;
+	play(action: string): string;
+}
+
+class Guitarist implements Musician {
+	name: string;
+	instrument: string;
+	constructor(name: string, instrument: string) {
+		this.name = name;
+		this.instrument = instrument;
+	}
+
+	play(action: string): string {
+		return `${this.name} ${action} the ${this.instrument}`;
+	}
+}
+
+const Page = new Guitarist("Jimmy Page", "guitar");
+
+class Peeps {
+	static count: number = 0;
+	static getCount(): number {
+		return Peeps.count;
+	}
+
+	public id: number;
+	constructor(public name: string) {
+		this.name = name;
+		this.id = ++Peeps.count;
+	}
+}
+
+const John = new Peeps("John");
+const Steve = new Peeps("Steve");
+const Amy = new Peeps("Amy");
+
+console.log(Peeps.count);
+console.log(Steve.id);
