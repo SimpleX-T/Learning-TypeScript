@@ -165,3 +165,28 @@ const todaysTransactions = {
     Books: -5,
     Job: 50,
 };
+const student = {
+    name: "Perpetual",
+    GPA: -5.0,
+    classes: [100, 200],
+};
+// for (const key in student) {
+// 	console.log(`${key}: ${student[key as keyof Student]}`);
+// }
+// Object.keys(student).map((key) => {
+// 	console.log(student[key as keyof typeof student]);
+// });
+const logStudentKey = (student, key) => {
+    console.log(`Student ${key}: ${student[key]}`);
+};
+// Generics
+const echo = (arg) => arg;
+const isObj = (arg) => {
+    return typeof arg === "object" && !Array.isArray(arg) && arg !== null;
+};
+const isTrue = (arg) => {
+    if (Array.isArray(arg) && !arg.length) {
+        return { arg, is: false };
+    }
+    return { arg, is: !!arg };
+};

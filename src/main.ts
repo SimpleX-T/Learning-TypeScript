@@ -259,3 +259,52 @@ const todaysTransactions: TransactionObj = {
 	Books: -5,
 	Job: 50,
 };
+
+interface Student {
+	// [key: string]: string | number | number[] | undefined;
+	name: string;
+	GPA: number;
+	classes?: number[];
+}
+
+const student: Student = {
+	name: "Perpetual",
+	GPA: -5.0,
+	classes: [100, 200],
+};
+
+// for (const key in student) {
+// 	console.log(`${key}: ${student[key as keyof Student]}`);
+// }
+
+// Object.keys(student).map((key) => {
+// 	console.log(student[key as keyof typeof student]);
+// });
+
+const logStudentKey = (student: Student, key: keyof Student): void => {
+	console.log(`Student ${key}: ${student[key]}`);
+};
+
+// logStudentKey(student, "GPA");
+/////////////////////////////
+
+interface Incomes {
+	[key: string]: number;
+}
+
+type Streams = "salary" | "bonus" | "sidehustle";
+type Income = Record<Streams, number>;
+
+// Generics
+const echo = <T>(arg: T): T => arg;
+
+const isObj = <T>(arg: T): boolean => {
+	return typeof arg === "object" && !Array.isArray(arg) && arg !== null;
+};
+
+const isTrue = <E>(arg: E): { arg: E; is: boolean } => {
+	if (Array.isArray(arg) && !arg.length) {
+		return { arg, is: false };
+	}
+	return { arg, is: !!arg };
+};
